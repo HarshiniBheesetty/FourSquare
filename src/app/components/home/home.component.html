@@ -1,0 +1,47 @@
+<nav class="navbar navbar-light bg-dark sticky-top">
+    <a class="navbar-brand text-warning">Foursquare</a>
+    <form class="form-inline">
+      <input class="form-control " 
+             type="search" placeholder="Enter items" 
+             aria-label="Search"
+             [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="enteredItem">
+      <input class="form-control " 
+             type="search" placeholder="Enter place" 
+             aria-label="Search"
+             [ngModelOptions]="{standalone: true}"
+             [(ngModel)]="place">
+      <button class="btn btn-outline-success my-2 my-sm-0" 
+              type="submit"
+              (click) = "onClick()">Search</button>
+    </form>  
+</nav>
+
+<div class="container">
+    <div *ngFor="let venue of venues">
+    <ul class="list-group ">
+        <li class="list-group-item ">
+            <!-- <img src= "{{venue.categories[0].icon.prefix+venue.categories[0].icon.suffix}}"> -->
+            <div class="row">
+            <div class="col-md-1  col-sm first">
+                <img src= "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/paneer-butter-masala-recipe-2-500x375.jpg" height="70px" width="80px">
+            </div>
+            <div  class ="col-md-4  col-sm second">
+                <strong>{{venue.name}}</strong>
+                <br>
+                <small>{{venue.id}}</small>
+                <p class ="address"><small>
+                {{venue.location.formattedAddress}} </small>   
+            </p>  
+            </div>
+          </div>
+              
+        </li>
+    </ul>
+  </div>
+  
+</div>
+
+
+<p>{{errorMessage}}</p>
+

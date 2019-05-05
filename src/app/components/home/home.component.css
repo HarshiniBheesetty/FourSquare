@@ -1,0 +1,35 @@
+.navbar{
+    justify-content: flex-start;
+    
+}
+.navbar-brand{
+    margin-right: 3%;
+}
+.form-inline {
+    width: 70%;
+}
+.form-control{
+    width: 35%; 
+    margin-right: 10px;  
+}
+
+strong{
+    margin-left: 2%;
+}
+.address{
+    margin-left: 2%;
+    margin-top:0%;
+}
+/* .second{
+    padding-left: 0%;
+}
+.first{
+    padding-right: 0%;
+    padding-left: 40px;
+} */
+.list-group-item {
+    
+    margin-bottom: 2px;
+    /* background-color: #ede8c9; */
+    /* border:orange 2px solid; */
+}
