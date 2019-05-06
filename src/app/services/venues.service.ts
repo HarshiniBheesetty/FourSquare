@@ -11,8 +11,8 @@ import { VenuePhotoResponseModel } from '../models/venue-photo-response-model';
 })
 export class VenuesService  {
 
-  public clientId = "WMY4CXUC1SUEEHMYZLHKA1AR3AYIGU5RS0KFXJG4MBSWSKMP";
-  public clientSecret = "XZJAAF5STXHGQSHA0YPQLJXE1KYTSNNLO2RSSWCCW2D04OWY";
+  public clientId = "NPWCNQB4WYKAXI1NWRRKGF3YM1JRF3IRWLI1EXG0EVNY3HA3";
+  public clientSecret = "FB2O5HMHG1OMTPDO4RSGHCXW3HQY1VEFEGPGWTFQB3XJXEK5";
   public vValue = 20200422
 
  
@@ -23,7 +23,7 @@ export class VenuesService  {
     //fetching data for venues
 
    public getVenues(near: string,searchItem :string) : Observable<VenuesResponseModel> {
-    let url: string = Servicehelper.getHostUrl() + '/v2/venues/search?near='+near+'&client_id='+this.clientId+'&client_secret='+this.clientSecret+'&v='+this.vValue+'&query='+searchItem;
+    let url: string = Servicehelper.getHostUrl() + '/v2/venues/search?near='+near+'&client_id='+this.clientId+'&client_secret='+this.clientSecret+'&v='+this.vValue+'&query='+searchItem+'&limit=10';
     
     console.log(url);
 

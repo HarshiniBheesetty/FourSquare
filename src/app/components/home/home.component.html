@@ -21,15 +21,15 @@
     <div *ngFor="let venue of venues">
     <ul class="list-group ">
         <li class="list-group-item ">
-            <!-- <img src= "{{venue.categories[0].icon.prefix+venue.categories[0].icon.suffix}}"> -->
+             
             <div class="row">
             <div class="col-md-1  col-sm first">
-                <img src= "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/paneer-butter-masala-recipe-2-500x375.jpg" height="70px" width="80px">
+              <img src= {{venue.photo}} height="70px" width="80px"> 
             </div>
             <div  class ="col-md-4  col-sm second">
                 <strong>{{venue.name}}</strong>
                 <br>
-                <small>{{venue.id}}</small>
+                
                 <p class ="address"><small>
                 {{venue.location.formattedAddress}} </small>   
             </p>  
@@ -42,6 +42,8 @@
   
 </div>
 
+<div class="container">
+    <h3>{{errorMessage}}</h3>
+</div>
 
-<p>{{errorMessage}}</p>
 

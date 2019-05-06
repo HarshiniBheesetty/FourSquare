@@ -27,13 +27,11 @@ export class HomeComponent implements OnInit {
     
   }
   public onClick(){
-    
-    console.log(this.place,this.enteredItem);
+    if(this.enteredItem !== "" && this.place !== "" ){
+      console.log(this.place,this.enteredItem);
     let observable: Observable<VenuesResponseModel>;
     observable = this.venuesService.getVenues(this.place,this.enteredItem);
 
-  
-     
     observable.subscribe(
       response => {
         console.log(response.response);
@@ -48,25 +46,31 @@ export class HomeComponent implements OnInit {
               ob = this.venuesService.getVenuePhoto(venue.id);
               ob.subscribe(
                 response => {
-                   console.log(response);
+                   const image = response.response.photos.items[0];
+                   console.log(image);
+                   console.log(response.response.photos.items);
+                   const photo = image.prefix + '300*300' + image.suffix;
+                   console.log(photo);
+                   venue.photo = photo;
+                   
                 },
                 error => {
                    console.log(error);
-                   return this.errorMessage = "Server not found";
+                   const photo = "https://cdn-b.william-reed.com/var/wrbm_gb_hospitality/storage/images/9/3/1/5/1295139-1-eng-GB/Tortilla-secures-seven-sites-for-restaurants-inside-and-outside-London.jpg"
+                   venue.photo = photo;
                 })  
-            
-
-             setTimeout(function(){ 
-
-              
-              }, 3000)
              
-        })},
+        })
+
+      },
 
       error => {
         console.log(error);
-        return this.errorMessage = "Server not found";
+        return this.errorMessage = "No restuarants available!!";
       })
+    
+
+    }
     
      
   }
