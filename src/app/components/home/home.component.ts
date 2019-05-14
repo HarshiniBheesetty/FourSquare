@@ -47,11 +47,21 @@ export class HomeComponent implements OnInit {
               ob.subscribe(
                 response => {
                    const image = response.response.photos.items[0];
+                   
+
                    console.log(image);
-                   console.log(response.response.photos.items);
-                   const photo = image.prefix + '300*300' + image.suffix;
-                   console.log(photo);
-                   venue.photo = photo;
+                   if(image === undefined){
+                    const photo = "https://cdn-b.william-reed.com/var/wrbm_gb_hospitality/storage/images/9/3/1/5/1295139-1-eng-GB/Tortilla-secures-seven-sites-for-restaurants-inside-and-outside-London.jpg";
+                    venue.photo = photo;
+                  }
+                   
+                   else{
+                    console.log(response.response.photos.items);
+                    const photo = image.prefix + '300*300' + image.suffix;
+                    console.log(photo);
+                    venue.photo = photo;
+                   }
+                   
                    
                 },
                 error => {
